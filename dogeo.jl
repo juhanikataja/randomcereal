@@ -5,6 +5,8 @@ Rref = 1.0
 min_radius=1
 max_radius=2
 padding = max_radius*2
+geofilename = "randomcereal.geo"
+siffilename = "randomcereal.sif"
 
 a = 8
 b = 17
@@ -94,7 +96,7 @@ airbrick=brick("airbrick",P,Q,bc=1,transparent=true)
 push!(not_tori, airbrick)
 air = intersection("air",not_tori)
 
-geo_io=open("random_tori.geo","w")
+geo_io=open("randomcereal.geo","w")
 print(geo_io, "algebraic3d\n")
 tlo(air,geo_io)
 for x in coil_array
@@ -102,7 +104,7 @@ for x in coil_array
 end
 close(geo_io)
 
-sifinfo = open("coil_data.sif","w")
+sifinfo = open("randomcereal.sif","w")
 for n = 1:length(coil_array)
   c = coil_array[n]
   co = c.center
